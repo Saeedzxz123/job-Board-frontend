@@ -77,6 +77,30 @@ const SignUpForm = () => {
           />
         </div>
 
+         {/* yourName Field */}
+        <div>
+          <label htmlFor='yourName'>YourName:</label>
+          <input
+            type='text'
+            id='yourName'
+            name='yourName'
+            onChange={handleChange}
+            required
+          />
+        </div>
+
+         {/* CheckBox HR Field */}
+        <div>
+          <label htmlFor='HR'>HR:</label>
+          <input
+            type='checkbox'
+            id='HR'
+            name='HR'
+            onChange={handleChange}
+            required
+          />
+        </div>
+
         {/* Form Actions */}
         <div>
           <button disabled={isFormInvalid()}>Sign Up</button>
