@@ -12,10 +12,13 @@ const SignUpForm = () => {
     username: '',
     password: '',
     passwordConf: '',
+    yourName: '',
+    HRUser: false
+
   });
   const { setUser } = useContext(UserContext);
 
-  const { username, password, passwordConf } = formData;
+  const { username, password, passwordConf , yourName , HRUser} = formData;
 
   const handleChange = (evt) => {
     setMessage('');
@@ -30,7 +33,7 @@ const SignUpForm = () => {
   };
 
   const isFormInvalid = () => {
-    return !(username && password && password === passwordConf);
+    return !(username && password && password === passwordConf && yourName);
   };
 
   return (
@@ -84,6 +87,7 @@ const SignUpForm = () => {
             type='text'
             id='yourName'
             name='yourName'
+            value={yourName}
             onChange={handleChange}
             required
           />
@@ -91,11 +95,12 @@ const SignUpForm = () => {
 
          {/* CheckBox HR Field */}
         <div>
-          <label htmlFor='HR'>HR:</label>
+          <label htmlFor='HRUser'>Are you a HR Recruiter:</label>
           <input
             type='checkbox'
-            id='HR'
-            name='HR'
+            id='HRUser'
+            name='HRUser'
+            value={HRUser}
             onChange={handleChange}
           />
         </div>
