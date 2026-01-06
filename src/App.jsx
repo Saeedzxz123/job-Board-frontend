@@ -12,6 +12,7 @@ import AddJobForm from './components/AddJobForm/AddJobForm'
 
 import { UserContext } from './contexts/UserContext'
 import JobDetails from './components/JobDetails/JobDetails'
+import EditJobForm from './components/EditJobForm/EditJobForm'
 
 const App = () => {
   // Access the user object from UserContext
@@ -48,6 +49,7 @@ const App = () => {
         <Route path="/sign-in" element={<SignInForm />} />
         <Route path="/add-new-job" element={<AddJobForm addJob={addJob} />}/>
         <Route path="/jobs/:id" element= {<JobDetails />} />
+        <Route path="jobs/:id/edit" element={<EditJobForm />}></Route>
       </Routes>
     </>
   )
