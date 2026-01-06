@@ -10,7 +10,6 @@ function JobDetails() {
     const getOneJob = async () => {
       const job = await jobService.show(id);
       setJob(job);
-      console.log(job);
     };
 
     if (id) getOneJob();
@@ -20,8 +19,20 @@ function JobDetails() {
   if (!job) return <h1>Loading...</h1>;
 
   return (
-    <div>
+    <div key={job._id}>
       <h1>Name:{job.title}</h1>
+      <h2>Company: {job.company}</h2>
+      <p>{job.description}</p>
+
+      <form action="/">
+        <button>Edite</button>
+      </form>
+
+      <button>Delete</button>
+
+      <form action="/">
+        <button>Add CV</button>
+      </form>
     </div>
   );
 }
