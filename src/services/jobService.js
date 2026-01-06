@@ -37,4 +37,22 @@ const show = async (id) => {
   }
 };
 
-export { index, create, show };
+const update = async (jobId, formData) => {
+  try {
+    const response = await axios.put(`${BASE_URL}/${jobId}`, formData);
+    return response.data.job;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+const deleteOne = async (jobId, formData) => {
+  try {
+    const response = await axios.delete(`${BASE_URL}/${petId}`);
+    return response.data.job;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+export { index, create, show, update, deleteOne };
