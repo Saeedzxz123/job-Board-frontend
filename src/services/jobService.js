@@ -48,11 +48,13 @@ const update = async (jobId, formData) => {
 
 const deleteOne = async (jobId, formData) => {
   try {
-    const response = await axios.delete(`${BASE_URL}/${petId}`);
+    const response = await axios.delete(`${BASE_URL}/${jobId}`);
     return response.data.job;
   } catch (error) {
     console.error(error);
   }
 };
+
+
 
 export { index, create, show, update, deleteOne };
