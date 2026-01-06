@@ -12,17 +12,23 @@ const SignUpForm = () => {
     username: '',
     password: '',
     passwordConf: '',
-    HRUser: false
+    isHR: false
 
   });
   const { setUser } = useContext(UserContext);
 
-  const { username, password, passwordConf  , HRUser} = formData;
+  const { username, password, passwordConf  , isHR } = formData;
 
   const handleChange = (evt) => {
-    setMessage('');
-    setFormData({ ...formData, [evt.target.name]: evt.target.value });
-  };
+  setMessage('')
+
+  const { name, type, checked, value } = evt.target
+
+  setFormData({
+    ...formData, [name]: type === 'checkbox' ? checked : value
+  });
+};
+
 
   const handleSubmit = async (evt) => {
     evt.preventDefault();
@@ -83,12 +89,12 @@ const SignUpForm = () => {
 
          {/* CheckBox HR Field */}
         <div>
-          <label htmlFor='HRUser'>Are you a HR Recruiter:</label>
+          <label htmlFor='isHR'>Are you a HR Recruiter:</label>
           <input
             type='checkbox'
-            id='HRUser'
-            name='HRUser'
-            value={HRUser}
+            id='isHR'
+            name='isHR'
+            checked={isHR}
             onChange={handleChange}
           />
         </div>
