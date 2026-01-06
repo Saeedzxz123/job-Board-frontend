@@ -25,7 +25,7 @@ const AddJobForm = ({ addJob }) => {
                 navigate('/')
             }
         } catch (err) {
-            console.log(error)
+            console.log(err)
         }
     }
 
