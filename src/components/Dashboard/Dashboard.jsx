@@ -1,6 +1,6 @@
 import { useContext } from 'react'
 import { UserContext } from '../../contexts/UserContext'
-
+import { Link } from 'react-router'
 const Dashboard = ({ jobs = [] }) => {
   // Access the user object from UserContext
   // This gives us the currently logged-in user's information (username, _id)
@@ -11,9 +11,16 @@ const Dashboard = ({ jobs = [] }) => {
     <main>
       {/* Greet the logged-in user */}
       <h1>Welcome, {user.username}</h1>
-      <p>
-        This is the dashboard page where you can view jobs after logging in.
-      </p>
+     <form action="/add-new-job">
+      <button>Add Job</button>
+     </form>
+
+     <form action="/">
+      <button>View All your Jobs</button>
+     </form>
+
+
+
 
       <hr />
 
@@ -28,9 +35,11 @@ const Dashboard = ({ jobs = [] }) => {
           {/* Loop over the jobs array and display each job */}
           {jobs.map(job => (
             <li key={job._id}>
+              <Link to={`/jobs/${job._id}`}>
               <h3>{job.title}</h3>
               <p><strong>Company:</strong> {job.company}</p>
-              <p>{job.description}</p>
+              </Link>
+              
             </li>
           ))}
         </ul>
