@@ -5,8 +5,9 @@ import * as jobService from "../../services/jobService";
 import ApplyJobForm from "../ApplyJobForm/ApplyJobForm";
 import { UserContext } from "../../contexts/UserContext";
 
-function JobDetails() {
+function JobDetails(props) {
   const [job, setJob] = useState(null);
+  const { deleteJob } = props;
   const navigate = useNavigate();
   const { id } = useParams();
   const { user } = useContext(UserContext);
@@ -24,9 +25,26 @@ function JobDetails() {
   if (!id) return <h1>Loading...</h1>;
   if (!job) return <h1>Loading...</h1>;
 
-  const isOwnerHR =
-    user?.isHR &&
-    (job.createdBy?._id === user._id || job.createdBy === user._id);
+  const handleDelete = async () => {
+    try {
+      const deletedJob = await jobService.deleteOne(id);
+
+      if (deletedJob) {
+        deleteJob(id);
+      } else {
+        return <h1>Something went wrong!</h1>;
+      }
+    } catch (error) {
+      console.error(error);
+    }
+
+    if (!id) {
+      return <h1>Loading...</h1>;
+    }
+    if (!job) {
+      return <h1>Loading...</h1>;
+    }
+  };
 
   return (
     <div key={job._id}>
@@ -39,9 +57,11 @@ function JobDetails() {
       <form>
       <button>Edit</button>
       </form>
-
-      <form>
-      <button>Delete</button>
+      <form action="/">
+        <button onClick={handleDelete}>Delete</button>
+      </form>
+      <form action="/">
+        <button>Add CV</button>
       </form>
     </>
       )}
