@@ -68,10 +68,7 @@ const App = () => {
         <Route path="/sign-in" element={<SignInForm />} />
         <Route path="/add-new-job" element={<AddJobForm addJob={addJob} />} />
         <Route path="/jobs/:id" element={<JobDetails deleteJob={deleteJob}/>}/>
-        <Route
-          path="jobs/:id/edit"
-          element={<EditJobForm updateOneJob={updateOneJob} />}
-        ></Route>
+        <Route path="jobs/:id/edit" element={<EditJobForm updateOneJob={updateOneJob} />}></Route>
       </Routes>
     </>
   );

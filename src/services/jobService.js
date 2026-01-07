@@ -55,4 +55,6 @@ const deleteOne = async (jobId) => {
   }
 };
 
+
+
 export { index, create, show, update, deleteOne };
