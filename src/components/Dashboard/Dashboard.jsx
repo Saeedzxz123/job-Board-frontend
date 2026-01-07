@@ -1,17 +1,26 @@
 import { useContext } from 'react'
 import { UserContext } from '../../contexts/UserContext'
 import { Link } from 'react-router'
+
 const Dashboard = ({ jobs = [] }) => {
   const { user } = useContext(UserContext)
+
+  if (!user) return <p>Loading...</p>
 
   return (
     <main>
       <h1>Welcome, {user.username}</h1>
 
       {user.isHR && (
-        <Link to="/add-new-job">
-          <button>Add Job</button>
-        </Link>
+        <>
+          <Link to="/add-new-job">
+            <button>Add Job</button>
+          </Link>
+
+          <Link to="/applications/hr">
+            <button>View Your Posted Jobs</button>
+          </Link>
+        </>
       )}
 
       {!user.isHR && (

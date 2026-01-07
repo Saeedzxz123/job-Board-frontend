@@ -1,22 +1,23 @@
-import { useEffect, useContext, useState } from "react";
-import { Routes, Route } from "react-router";
+import { useEffect, useContext, useState } from "react"
+import { Routes, Route } from "react-router"
 
-import * as jobService from "./services/jobService";
+import * as jobService from "./services/jobService"
 
-import NavBar from "./components/NavBar/NavBar";
-import SignUpForm from "./components/SignUpForm/SignUpForm";
-import SignInForm from "./components/SignInForm/SignInForm";
-import Landing from "./components/Landing/Landing";
-import Dashboard from "./components/Dashboard/Dashboard";
-import AddJobForm from "./components/AddJobForm/AddJobForm";
+import NavBar from "./components/NavBar/NavBar"
+import SignUpForm from "./components/SignUpForm/SignUpForm"
+import SignInForm from "./components/SignInForm/SignInForm"
+import Landing from "./components/Landing/Landing"
+import Dashboard from "./components/Dashboard/Dashboard"
+import AddJobForm from "./components/AddJobForm/AddJobForm"
 import EditJobForm from './components/EditJobForm/EditJobForm'
-import { UserContext } from "./contexts/UserContext";
-import JobDetails from "./components/JobDetails/JobDetails";
+import { UserContext } from "./contexts/UserContext"
+import JobDetails from "./components/JobDetails/JobDetails"
+import MyApplications from './components/MyApplications/MyApplications'
 
 const App = () => {
 
-  const { user } = useContext(UserContext);
-  const [jobs, setJobs] = useState([]);
+  const { user } = useContext(UserContext)
+  const [jobs, setJobs] = useState([])
 
   useEffect(() => {
     if (!user) return;
@@ -26,37 +27,37 @@ const App = () => {
         const jobs = await jobService.index();
         setJobs(jobs);
       } catch (error) {
-        console.log(error);
+        console.log(error)
       }
     };
 
-    getAllJobs();
-  }, [user]);
+    getAllJobs()
+  }, [user])
 
   const addJob = (job) => {
-    setJobs([...jobs, job]);
+    setJobs([...jobs, job])
   };
 
   const deleteJob = (id) => {
     const newJobList = jobs.filter((job) => {
-      return job._id !== id;
-    });
+      return job._id !== id
+    })
 
     
 
-    setJobs(newJobList);
-  };
+    setJobs(newJobList)
+  }
 
     const updateOneJob = (updatedJob) => {
     const newUpdatedJob = jobs.map((oneJob) => {
       if (oneJob._id === updatedJob._id) {
-        return updatedJob;
+        return updatedJob
       } else {
-        return oneJob;
+        return oneJob
       }
-    });
-    setJobs(newUpdatedJob);
-  };
+    })
+    setJobs(newUpdatedJob)
+  }
 
   return (
     <>
@@ -71,6 +72,7 @@ const App = () => {
         <Route path="/add-new-job" element={<AddJobForm addJob={addJob} />} />
         <Route path="/jobs/:id" element={<JobDetails deleteJob={deleteJob} />} />
         <Route path="jobs/:id/edit" element={<EditJobForm updateOneJob={updateOneJob} />}></Route>
+        <Route path="/my" element={<MyApplications />} />
       </Routes>
     </>
   );
