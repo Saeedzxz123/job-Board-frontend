@@ -1,16 +1,22 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react"; 
+
 import { useParams, useNavigate } from "react-router";
 import * as jobService from "../../services/jobService";
+import ApplyJobForm from "../ApplyJobForm/ApplyJobForm";
+import { UserContext } from "../../contexts/UserContext";
+
 function JobDetails(props) {
   const [job, setJob] = useState(null);
   const { deleteJob } = props;
   const navigate = useNavigate();
   const { id } = useParams();
+  const { user } = useContext(UserContext);
 
   useEffect(() => {
     const getOneJob = async () => {
-      const job = await jobService.show(id);
-      setJob(job);
+      const response = await jobService.show(id);
+
+      setJob(response);
     };
 
     if (id) getOneJob();
@@ -42,12 +48,14 @@ function JobDetails(props) {
 
   return (
     <div key={job._id}>
-      <h1>Name:{job.title}</h1>
+      <h1>Name: {job.title}</h1>
       <h2>Company: {job.company}</h2>
       <p>{job.description}</p>
 
-      <form action="/">
-        <button>Edite</button>
+      {isOwnerHR && (
+    <>
+      <form>
+      <button>Edit</button>
       </form>
       <form action="/">
         <button onClick={handleDelete}>Delete</button>
@@ -55,6 +63,12 @@ function JobDetails(props) {
       <form action="/">
         <button>Add CV</button>
       </form>
+    </>
+      )}
+
+      {!user?.isHR && (
+      <ApplyJobForm jobId={job._id} />
+      )}
     </div>
   );
 }

@@ -33,7 +33,7 @@ const SignUpForm = () => {
   const handleSubmit = async (evt) => {
     evt.preventDefault();
     const user = await authService.signUp(formData)
-    setUser(user); // this line will print the form data to the console
+    setUser(user); 
     navigate('/')
   };
 
@@ -46,63 +46,61 @@ const SignUpForm = () => {
       <h1>Sign Up</h1>
       <p>{message}</p>
       <form onSubmit={handleSubmit}>
-        {/* Username Field */}
+
         <div>
           <label htmlFor='username'>Username:</label>
-          <input
-            type='text'
-            id='name'
-            value={username}
-            name='username'
-            onChange={handleChange}
-            required
-          />
-        </div>
+    <input
+    type='text'
+    id='name'
+    value={username}
+    name='username'
+    onChange={handleChange}
+    required
+      />
+      </div>
 
-        {/* Password Field */}
+
         <div>
           <label htmlFor='password'>Password:</label>
           <input
-            type='password'
-            id='password'
-            value={password}
-            name='password'
-            onChange={handleChange}
-            required
+      type='password'
+        id='password'
+        value={password}
+        name='password'
+        onChange={handleChange}
+        required
           />
         </div>
 
-        {/* Coinfirm Password */}
+
         <div>
-          <label htmlFor='confirm'>Confirm Password:</label>
-          <input
-            type='password'
-            id='confirm'
-            value={passwordConf}
-            name='passwordConf'
-            onChange={handleChange}
-            required
-          />
-        </div>
+        <label htmlFor='confirm'>Confirm Password:</label>
+      <input
+    type='password'
+    id='confirm'
+    value={passwordConf}
+    name='passwordConf'
+    onChange={handleChange}
+    required
+  />
+    </div>
 
-         
 
-         {/* CheckBox HR Field */}
         <div>
           <label htmlFor='isHR'>Are you a HR Recruiter:</label>
           <input
-            type='checkbox'
-            id='isHR'
-            name='isHR'
-            checked={isHR}
-            onChange={handleChange}
+        type='checkbox'
+        id='isHR'
+        name='isHR'
+        checked={isHR}
+        onChange={handleChange}
           />
         </div>
 
-        {/* Form Actions */}
+
         <div>
-          <button disabled={isFormInvalid()}>Sign Up</button>
-          <button onClick={() => navigate('/')}>Cancel</button>
+      <button disabled={isFormInvalid()}>Sign Up</button>
+      <button onClick={() => navigate('/')}>Cancel</button>
         </div>
       </form>
     </main>
