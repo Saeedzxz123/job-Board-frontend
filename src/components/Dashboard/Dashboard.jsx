@@ -7,16 +7,18 @@ const Dashboard = ({ jobs = [] }) => {
   return (
     <main>
       <h1>Welcome, {user.username}</h1>
-     <form action="/add-new-job">
-      <button>Add Job</button>
-     </form>
 
-     <form action="/">
-      <button>View All your Jobs</button>
-     </form>
+      {user.isHR && (
+        <Link to="/add-new-job">
+          <button>Add Job</button>
+        </Link>
+      )}
 
-
-
+      {!user.isHR && (
+        <Link to="/my">
+          <button>View Your Applied Jobs</button>
+        </Link>
+      )}
 
       <hr />
 
@@ -27,13 +29,12 @@ const Dashboard = ({ jobs = [] }) => {
       ) : (
         <ul>
           {jobs.map(job => (
-        <li key={job._id}>
-          <Link to={`/jobs/${job._id}`}>
-          <h3>{job.title}</h3>
-          <p><strong>Company:</strong> {job.company}</p>
-          </Link>
-          
-      </li>
+            <li key={job._id}>
+              <Link to={`/jobs/${job._id}`}>
+                <h3>{job.title}</h3>
+                <p><strong>Company:</strong> {job.company}</p>
+              </Link>
+            </li>
           ))}
         </ul>
       )}
