@@ -1,6 +1,6 @@
 import { useEffect, useState, useContext } from "react";
 
-import { useParams, useNavigate } from "react-router";
+import { useParams, useNavigate, Link } from "react-router";
 import * as jobService from "../../services/jobService";
 import ApplyJobForm from "../ApplyJobForm/ApplyJobForm";
 import { UserContext } from "../../contexts/UserContext";
@@ -22,8 +22,9 @@ function JobDetails(props) {
     if (id) getOneJob();
   }, [id]);
 
-  if (!id) return <h1>Loading...</h1>;
+    if (!id) return <h1>Loading...</h1>;
   if (!job) return <h1>Loading...</h1>;
+
 
   const handleDelete = async () => {
     try {
@@ -37,14 +38,9 @@ function JobDetails(props) {
     } catch (error) {
       console.error(error);
     }
-
-    if (!id) {
-      return <h1>Loading...</h1>;
-    }
-    if (!job) {
-      return <h1>Loading...</h1>;
-    }
-  };
+  if (!id) return <h1>Loading...</h1>;
+  if (!job) return <h1>Loading...</h1>;
+  }
 
   const isOwnerHR =
     user?.isHR &&
@@ -58,14 +54,11 @@ function JobDetails(props) {
 
       {isOwnerHR && (
         <>
-          <form>
+          <form action={`/jobs/${id}/edit`}>
             <button>Edit</button>
           </form>
           <form action="/">
             <button onClick={handleDelete}>Delete</button>
-          </form>
-          <form action="/">
-            <button>Add CV</button>
           </form>
         </>
       )}
