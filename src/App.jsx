@@ -9,13 +9,12 @@ import SignInForm from "./components/SignInForm/SignInForm";
 import Landing from "./components/Landing/Landing";
 import Dashboard from "./components/Dashboard/Dashboard";
 import AddJobForm from "./components/AddJobForm/AddJobForm";
-
+import EditJobForm from './components/EditJobForm/EditJobForm'
 import { UserContext } from "./contexts/UserContext";
 import JobDetails from "./components/JobDetails/JobDetails";
 
 const App = () => {
-  // Access the user object from UserContext
-  // This gives us the currently logged-in user's information (username, email) that we extract from the token
+
   const { user } = useContext(UserContext);
   const [jobs, setJobs] = useState([]);
 
@@ -43,14 +42,26 @@ const App = () => {
       return job._id !== id;
     });
 
+    
+
     setJobs(newJobList);
+  };
+
+    const updateOneJob = (updatedJob) => {
+    const newUpdatedJob = jobs.map((oneJob) => {
+      if (oneJob._id === updatedJob._id) {
+        return updatedJob;
+      } else {
+        return oneJob;
+      }
+    });
+    setJobs(newUpdatedJob);
   };
 
   return (
     <>
       <NavBar />
       <Routes>
-        {/* if the user is logged in we have the user object else we have the user set to null */}
         <Route
           path="/"
           element={user ? <Dashboard jobs={jobs} /> : <Landing />}
@@ -58,10 +69,8 @@ const App = () => {
         <Route path="/sign-up" element={<SignUpForm />} />
         <Route path="/sign-in" element={<SignInForm />} />
         <Route path="/add-new-job" element={<AddJobForm addJob={addJob} />} />
-        <Route
-          path="/jobs/:id"
-          element={<JobDetails deleteJob={deleteJob} />}
-        />
+        <Route path="/jobs/:id" element={<JobDetails deleteJob={deleteJob} />} />
+        <Route path="jobs/:id/edit" element={<EditJobForm updateOneJob={updateOneJob} />}></Route>
       </Routes>
     </>
   );

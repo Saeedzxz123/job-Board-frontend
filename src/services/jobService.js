@@ -42,7 +42,7 @@ const update = async (jobId, formData) => {
     const response = await axios.put(`${BASE_URL}/${jobId}`, formData, {
       headers: { Authorization: `Bearer ${tokenService.getToken()}` },
     });
-    return response.data.job;
+    return response.data;
   } catch (error) {
     console.error(error);
   }
