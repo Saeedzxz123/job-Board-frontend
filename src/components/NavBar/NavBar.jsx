@@ -1,13 +1,16 @@
 import { useContext } from 'react';
-import { Link } from 'react-router';
+import { Link, useNavigate } from 'react-router';
 import { UserContext } from '../../contexts/UserContext';
 
-const NavBar = () => {
-  const { user, setUser } = useContext(UserContext);
 
+const NavBar = () => {
+    const navigate = useNavigate();
+
+  const { user, setUser } = useContext(UserContext);
   const handleSignOut = () => {
     localStorage.removeItem('token');
     setUser(null);
+    navigate('/')
   };
 
   return (
@@ -29,8 +32,8 @@ const NavBar = () => {
       )}
       {!user.isHR && (
       <Link to="/my">My Applications</Link> )}
-
-          <button onClick={handleSignOut} className="logout-btn">Sign Out</button>
+          
+          <button  onClick={handleSignOut} >Sign Out</button>
           </>
         ) : (
         <>
