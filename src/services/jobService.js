@@ -38,15 +38,23 @@ const show = async (id) => {
 };
 
 const update = async (jobId, formData) => {
-  const response = await axios.put(`${BASE_URL}/${jobId}`, formData, {
-    headers: { Authorization: `Bearer ${tokenService.getToken()}` },
-  });
-  return response.data;
+  try {
+    const response = await axios.put(
+      `${BASE_URL}/${jobId}`,
+      {
+        headers: { Authorization: `Bearer ${tokenService.getToken()}` },
+      },
+      formData
+    );
+    return response.data.job;
+  } catch (error) {
+    console.error(error);
+  }
 };
 
 const deleteOne = async (jobId) => {
   try {
-    const response = await axios.delete(`${BASE_URL}/${jobId}`, {
+    const response = await axios.delete(`${BASE_URL}/${petId}`, {
       headers: { Authorization: `Bearer ${tokenService.getToken()}` },
     });
     return response.data.job;
@@ -55,6 +63,10 @@ const deleteOne = async (jobId) => {
   }
 };
 
+<<<<<<< HEAD
 
 
 export { index, create, show, update, deleteOne };
+=======
+export { index, create, show, update, deleteOne };
+>>>>>>> parent of d1d0329 (Added edit and delete for jobs)
