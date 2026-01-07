@@ -40,7 +40,8 @@ const show = async (id) => {
 const update = async (jobId, formData) => {
   try {
     const response = await axios.put(
-      `${BASE_URL}/${jobId}`, {
+      `${BASE_URL}/${jobId}`,
+      {
         headers: { Authorization: `Bearer ${tokenService.getToken()}` },
       },
       formData
@@ -51,7 +52,7 @@ const update = async (jobId, formData) => {
   }
 };
 
-const deleteOne = async (jobId, formData) => {
+const deleteOne = async (jobId) => {
   try {
     const response = await axios.delete(`${BASE_URL}/${petId}`, {
       headers: { Authorization: `Bearer ${tokenService.getToken()}` },
