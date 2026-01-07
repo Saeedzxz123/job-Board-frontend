@@ -1,4 +1,4 @@
-import { useEffect, useState, useContext } from "react"; 
+import { useEffect, useState, useContext } from "react";
 
 import { useParams, useNavigate } from "react-router";
 import * as jobService from "../../services/jobService";
@@ -46,6 +46,10 @@ function JobDetails(props) {
     }
   };
 
+  const isOwnerHR =
+    user?.isHR &&
+    (job.createdBy?._id === user._id || job.createdBy === user._id);
+
   return (
     <div key={job._id}>
       <h1>Name: {job.title}</h1>
@@ -53,22 +57,20 @@ function JobDetails(props) {
       <p>{job.description}</p>
 
       {isOwnerHR && (
-    <>
-      <form>
-      <button>Edit</button>
-      </form>
-      <form action="/">
-        <button onClick={handleDelete}>Delete</button>
-      </form>
-      <form action="/">
-        <button>Add CV</button>
-      </form>
-    </>
+        <>
+          <form>
+            <button>Edit</button>
+          </form>
+          <form action="/">
+            <button onClick={handleDelete}>Delete</button>
+          </form>
+          <form action="/">
+            <button>Add CV</button>
+          </form>
+        </>
       )}
 
-      {!user?.isHR && (
-      <ApplyJobForm jobId={job._id} />
-      )}
+      {!user?.isHR && <ApplyJobForm jobId={job._id} />}
     </div>
   );
 }
