@@ -38,14 +38,10 @@ const show = async (id) => {
 };
 
 const update = async (jobId, formData) => {
-  try {
-    const response = await axios.put(`${BASE_URL}/${jobId}`, formData, {
-      headers: { Authorization: `Bearer ${tokenService.getToken()}` },
-    });
-    return response.data.job;
-  } catch (error) {
-    console.error(error);
-  }
+  const response = await axios.put(`${BASE_URL}/${jobId}`, formData, {
+    headers: { Authorization: `Bearer ${tokenService.getToken()}` },
+  });
+  return response.data;
 };
 
 const deleteOne = async (jobId) => {

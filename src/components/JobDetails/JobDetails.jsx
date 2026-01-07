@@ -1,3 +1,7 @@
+import { useEffect, useState } from "react";
+import { useParams, useNavigate, Link } from "react-router";
+import * as jobService from "../../services/jobService";
+function JobDetails({deleteJob}) {
 import { useEffect, useState, useContext } from "react";
 
 import { useParams, useNavigate } from "react-router";
@@ -21,6 +25,12 @@ function JobDetails(props) {
 
     if (id) getOneJob();
   }, [id]);
+
+      const handleDelete = async () => {
+      const deletedJob = await jobService.deleteOne(id);
+      deleteJob(id);
+      navigate("/");
+    };
 
   if (!id) return <h1>Loading...</h1>;
   if (!job) return <h1>Loading...</h1>;
@@ -56,6 +66,10 @@ function JobDetails(props) {
       <h2>Company: {job.company}</h2>
       <p>{job.description}</p>
 
+
+        <Link to={`/jobs/${id}/edit`}>Edit</Link>
+
+      <button onClick={handleDelete}>Delete</button>
       {isOwnerHR && (
         <>
           <form>

@@ -12,6 +12,7 @@ import AddJobForm from "./components/AddJobForm/AddJobForm";
 
 import { UserContext } from "./contexts/UserContext";
 import JobDetails from "./components/JobDetails/JobDetails";
+import EditJobForm from "./components/EditJobForm/EditJobForm";
 
 const App = () => {
   // Access the user object from UserContext
@@ -34,16 +35,24 @@ const App = () => {
     getAllJobs();
   }, [user]);
 
-  const addJob = (job) => {
-    setJobs([...jobs, job]);
+  const deleteJob = (id) => {
+    const newJobList = jobs.filter((job) => job._id !== id);
+    setJobs(newJobList);
   };
 
-  const deleteJob = (id) => {
-    const newJobList = jobs.filter((job) => {
-      return job._id !== id;
+  const updateOneJob = (updatedJob) => {
+    const newUpdatedJob = jobs.map((oneJob) => {
+      if (oneJob._id === updatedJob._id) {
+        return updatedJob;
+      } else {
+        return oneJob;
+      }
     });
+    setJobs(newUpdatedJob);
+  };
 
-    setJobs(newJobList);
+  const addJob = (job) => {
+    setJobs([...jobs, job]);
   };
 
   return (
@@ -58,10 +67,8 @@ const App = () => {
         <Route path="/sign-up" element={<SignUpForm />} />
         <Route path="/sign-in" element={<SignInForm />} />
         <Route path="/add-new-job" element={<AddJobForm addJob={addJob} />} />
-        <Route
-          path="/jobs/:id"
-          element={<JobDetails deleteJob={deleteJob} />}
-        />
+        <Route path="/jobs/:id" element={<JobDetails deleteJob={deleteJob}/>}/>
+        <Route path="jobs/:id/edit" element={<EditJobForm updateOneJob={updateOneJob} />}></Route>
       </Routes>
     </>
   );
