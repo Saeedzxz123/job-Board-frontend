@@ -17,8 +17,7 @@ const getUserFromToken = () => {
 };
 
 function UserProvider({ children }) {
-  // Here we extract the user from the token if there is a token
-  // otherwise we set it to null
+
   const [user, setUser] = useState(getUserFromToken());
 
   const value = { user, setUser };

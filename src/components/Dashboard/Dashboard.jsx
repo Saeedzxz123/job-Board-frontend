@@ -1,54 +1,43 @@
-import { useContext } from 'react'
-import { UserContext } from '../../contexts/UserContext'
-import { Link } from 'react-router'
+import { useContext } from "react";
+import { useNavigate } from "react-router"; 
+import { Link } from "react-router";
+import { UserContext } from "../../contexts/UserContext";
+import ViewJobsButton from "../viewJobsButton/ViewJobsButton";
 
-const Dashboard = ({ jobs = [] }) => {
-  const { user } = useContext(UserContext)
-
-  if (!user) return <p>Loading...</p>
+const Dashboard = ({ jobs }) => {
+  const { user } = useContext(UserContext);
+  const navigate = useNavigate(); 
 
   return (
     <main>
-      <h1>Welcome, {user.username}</h1>
+      <h1>Job Board</h1>
 
-      {user.isHR && (
-        <>
-          <Link to="/add-new-job">
-            <button>Add Job</button>
-          </Link>
+  <ViewJobsButton />
 
-          <Link to="/applications/hr">
-            <button>View Your Posted Jobs</button>
-          </Link>
-        </>
+    {user?.isHR && (
+    <Link to="/add-new-job">
+    <button>Add Job</button>
+    </Link>
       )}
 
-      {!user.isHR && (
-        <Link to="/my">
-          <button>View Your Applied Jobs</button>
-        </Link>
-      )}
+      <ul>
+    {jobs.map((job) => (
+    <li
+    key={job._id}
+    style={{
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+    marginBottom: "10px",
+      }}>
+    <span>{job.title} - {job.company}</span>
 
-      <hr />
+    <button onClick={() => navigate(`/jobs/${job._id}`)}>View</button>
+    </li>
+    ))}
+  </ul>
+  </main>
+  );
+};
 
-      <h2>Job Listings</h2>
-
-      {jobs.length === 0 ? (
-        <p>No jobs have been posted yet.</p>
-      ) : (
-        <ul>
-          {jobs.map(job => (
-            <li key={job._id}>
-              <Link to={`/jobs/${job._id}`}>
-                <h3>{job.title}</h3>
-                <p><strong>Company:</strong> {job.company}</p>
-              </Link>
-            </li>
-          ))}
-        </ul>
-      )}
-    </main>
-  )
-}
-
-export default Dashboard
+export default Dashboard;
