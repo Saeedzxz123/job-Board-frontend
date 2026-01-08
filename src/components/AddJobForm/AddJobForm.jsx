@@ -34,7 +34,7 @@ const AddJobForm = ({ addJob }) => {
     <div>
       <h1>Add Job</h1>
 
-      <form onSubmit={handleSubmit}>
+      <form className="form-card" onSubmit={handleSubmit}>
         <label>Title</label>
         <input
           required

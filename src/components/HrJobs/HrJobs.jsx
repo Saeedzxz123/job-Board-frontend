@@ -1,12 +1,12 @@
 import { useEffect, useState, useContext } from "react";
-import { Link, Navigate } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { UserContext } from "../../contexts/UserContext";
 import * as jobService from "../../services/jobService";
 
 const HrJobs = () => {
   const { user } = useContext(UserContext);
   const [jobs, setJobs] = useState([]);
-
+  const navigate = useNavigate();
   if (!user) return <p>Loading...</p>;
   if (!user.isHR) return <Navigate to="/" />;
 
@@ -33,7 +33,9 @@ const HrJobs = () => {
         <ul>
     {jobs.map((job) => (
     <li key={job._id}>
-    <Link to={`/jobs/${job._id}`}> {job.title} - {job.company} </Link>
+         {job.title} {job.company}
+
+    <button onClick={() => navigate(`/jobs/${job._id}`)}>Detail</button>
     </li> ))}
         </ul>
       )}

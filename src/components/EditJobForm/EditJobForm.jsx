@@ -37,7 +37,7 @@ const EditJobForm = ({ updateOneJob }) => {
   return (
     <div className="shadedBorder">
       <h1>Edit Job</h1>
-      <form action="/" onSubmit={handleSubmit}>
+      <form className="form-card" action="/" onSubmit={handleSubmit}>
         <label htmlFor="title">Title</label>
         <input
           type="text"

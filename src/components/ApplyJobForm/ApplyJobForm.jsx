@@ -31,14 +31,14 @@ const ApplyJobForm = ({ jobId, alreadyApplied, onApplied }) => {
     {alreadyApplied ? (
     <p >You already applied for this job</p>
     ) : (
-    <form onSubmit={handleSubmit}>
-    <input
+    <form style={{ margin: "1rem",}}  onSubmit={handleSubmit}>
+    <input 
     type="file"
     accept=".pdf,.doc,.docx"
     onChange={(e) => setCv(e.target.files[0])}
     required
     />
-        <button type="submit">Apply</button>
+        <button className="marginform" type="submit">Apply</button>
         </form>
       )}
 

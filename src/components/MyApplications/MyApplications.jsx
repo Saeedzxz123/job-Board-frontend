@@ -1,9 +1,10 @@
 import { useEffect, useState, useContext } from 'react'
-import { Link, Navigate } from 'react-router'
+import { Link, useNavigate } from 'react-router'
 import { UserContext } from '../../contexts/UserContext'
 import { getMyApplications } from '../../services/applicationService'
 
 const MyApplications = () => {
+  const navigate = useNavigate()
   const { user } = useContext(UserContext)
   const [applications, setApplications] = useState([])
   const [loading, setLoading] = useState(true)
@@ -48,6 +49,8 @@ const MyApplications = () => {
               <span >Applied</span>
                 <h3>{app.job.title}</h3>
                 <p>{app.job.company}</p>
+
+                <button onClick={() => navigate(`/jobs/${app.job._id}`)}>Detail</button>
             </li>
           ))}
         </ul>
@@ -55,5 +58,6 @@ const MyApplications = () => {
     </main>
   )
 }
+ 
 
 export default MyApplications

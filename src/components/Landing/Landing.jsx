@@ -1,6 +1,7 @@
-import { Link } from "react-router";
+import { Link ,useNavigate} from "react-router";
 
 const Landing = () => {
+  const navigate = useNavigate()
   return (
     <main className="landing">
       <section className="hero">
@@ -12,12 +13,10 @@ const Landing = () => {
           </p>
 
           <div className="actions">
-            <Link to="/sign-up" className="btn-primary">
-              Get Started
-            </Link>
-            <Link to="/sign-in" className="btn-outline">
-              Sign In
-            </Link>
+ 
+                <button className="LABTN" onClick={() => navigate(`/sign-up`)}>get Started</button>
+                <button className="LABTN" onClick={() => navigate(`/sign-in`)}>Sign in</button>
+
           </div>
         </div>
       </section>
@@ -50,9 +49,9 @@ const Landing = () => {
           <h2>Ready to Get Started?</h2>
           <p>Create an account today and start applying to jobs instantly.</p>
 
-          <Link to="/sign-up" className="btn-primary">
-            Create Account
-          </Link>
+
+        <button className="LABTN" onClick={() => navigate(`/sign-up`)}>Sign-up</button>
+
         </div>
       </section>
     </main>
