@@ -59,10 +59,10 @@ function JobDetails({ deleteJob }) {
 
       {isOwnerHR && (
         <>
-          <form action={`/jobs/${id}/edit`}>
+          <form className="form-card" action={`/jobs/${id}/edit`}>
             <button>Edit</button>
           </form>
-          <form action="/">
+          <form className="form-card" action="/">
             <button onClick={handleDelete}>Delete</button>
           </form>
 
