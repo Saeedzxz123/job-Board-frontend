@@ -1,8 +1,60 @@
+import { Link } from "react-router";
+
 const Landing = () => {
   return (
-    <main>
-      <h1>Hello, you are on the landing page for visitors.</h1>
-      <p>Sign up now, or sign in to see your super secret dashboard!</p>
+    <main className="landing">
+      <section className="hero">
+        <div className="container">
+          <h1>Find Your Next Career Opportunity</h1>
+          <p>
+            A modern job board for candidates and recruiters to connect efficiently
+            and securely. Apply with your CV and track your applications.
+          </p>
+
+          <div className="actions">
+            <Link to="/sign-up" className="btn-primary">
+              Get Started
+            </Link>
+            <Link to="/sign-in" className="btn-outline">
+              Sign In
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      <section className="features">
+        <div className="container">
+          <h2>Why Choose Our Platform?</h2>
+
+          <div className="grid">
+            <div className="card">
+              <h3>Quick Applications</h3>
+              <p>Apply to jobs easily by uploading your CV directly.</p>
+            </div>
+
+            <div className="card">
+              <h3>Recruiter Tools</h3>
+              <p>Post jobs, manage listings, and review applicants.</p>
+            </div>
+
+            <div className="card">
+              <h3>Secure Access</h3>
+              <p>Role-based authentication for users and HR recruiters.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="cta">
+        <div className="container">
+          <h2>Ready to Get Started?</h2>
+          <p>Create an account today and start applying to jobs instantly.</p>
+
+          <Link to="/sign-up" className="btn-primary">
+            Create Account
+          </Link>
+        </div>
+      </section>
     </main>
   );
 };
