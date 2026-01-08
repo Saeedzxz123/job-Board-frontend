@@ -10,7 +10,7 @@ const ViewJobsButton = () => {
 
   const handleClick = () => {
     if (user.isHR) {
-      navigate("/hr/jobs");
+      navigate("/hr");
     } else {
       navigate("/my");
     }

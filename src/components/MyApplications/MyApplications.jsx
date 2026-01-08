@@ -45,7 +45,7 @@ const MyApplications = () => {
         <ul>
           {applications.map(app => (
             <li key={app._id}>
-              <span className="applied-label">Applied</span>
+              <span >Applied</span>
                 <h3>{app.job.title}</h3>
                 <p>{app.job.company}</p>
             </li>
