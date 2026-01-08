@@ -13,6 +13,7 @@ import EditJobForm from './components/EditJobForm/EditJobForm'
 import { UserContext } from "./contexts/UserContext"
 import JobDetails from "./components/JobDetails/JobDetails"
 import MyApplications from './components/MyApplications/MyApplications'
+import HrJobs from './components/HrJobs/HrJobs'
 
 const App = () => {
 
@@ -64,8 +65,7 @@ const App = () => {
       <NavBar />
       <Routes>
         <Route
-          path="/"
-          element={user ? <Dashboard jobs={jobs} /> : <Landing />}
+          path="/"  element={user ? <Dashboard jobs={jobs} /> : <Landing />}
         />
         <Route path="/sign-up" element={<SignUpForm />} />
         <Route path="/sign-in" element={<SignInForm />} />
@@ -73,6 +73,8 @@ const App = () => {
         <Route path="/jobs/:id" element={<JobDetails deleteJob={deleteJob} />} />
         <Route path="jobs/:id/edit" element={<EditJobForm updateOneJob={updateOneJob} />}></Route>
         <Route path="/my" element={<MyApplications />} />
+        <Route path="/hr" element={<HrJobs />} />
+
       </Routes>
     </>
   );
