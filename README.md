@@ -1,16 +1,80 @@
-# React + Vite
+# Job Board Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 📸 Screenshot
+![Home Screenshot](./screenshot.png)
 
-Currently, two official plugins are available:
+---
+![App Screenshot](./screenshot2.png)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🧩 App Name
+**Job Board**
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 📖 Description
+Job Board is a modern web application that connects job seekers with recruiters in a simple and intuitive way.  
+Candidates can browse available jobs, apply by uploading their CV, and track their applications.  
+Recruiters (HR users) can create, edit, and manage job postings, as well as view applicants for each job.
+
+The goal of this project is to demonstrate a full-stack workflow with authentication, role-based access, and a clean, professional user interface.
+
+---
+
+## 🎯 Background
+Finding and managing job applications can be confusing for both applicants and recruiters.  
+This app was built to simplify that process by providing:
+- A clear job listing experience
+- A simple application flow
+- Separate experiences for HR users and candidates
+
+The UI was designed to feel modern, clean, and easy to use.
+
+---
+
+## 🚀 Getting Started
+
+- **Back-End Repository:**  
+  👉 https://github.com/Saeedzxz123/job-board-backend
+
+---
+
+## 🛠️ Technologies Used
+
+- **JavaScript**
+- **React**
+- **React Router**
+- **CSS (custom styling)**
+- **REST API**
+- **Node.js / Express (Back End)**
+- **MongoDB (Database)**
+- **JWT Authentication**
+
+---
+
+## 📚 Attributions
+
+- Icons and UI inspiration from modern SaaS dashboards
+- Browser default file input behavior
+- No copyrighted assets were used
+
+
+---
+
+## 🔮 Next Steps (Future Enhancements)
+
+- Add job search and filters (location, role, company)
+- Add pagination for large job lists
+- Allow recruiters to download CVs directly
+- Add email notifications for applications
+- Improve mobile responsiveness
+- Add dark mode
+
+---
+
+## 🔗 Related Repositories
+
+- **Back-End Repository:**  
+  https://github.com/Saeedzxz123/job-board-backend
