@@ -4,7 +4,7 @@
 ![Home Screenshot](./screenshot.png)
 
 ---
-![App Screenshot](./screenshot2.png)
+![App Screenshot](./Screenshot2.png)
 
 
 ---
