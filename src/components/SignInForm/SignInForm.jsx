@@ -31,40 +31,55 @@ const SignInForm = () => {
   };
 
   return (
-    <main>
-      <h1>Sign In</h1>
-      <p>{message}</p>
-      <form autoComplete='off' onSubmit={handleSubmit}>
-        <div>
-      <label htmlFor='email'>Username:</label>
-      <input
-      type='text'
-      autoComplete='off'
-      id='username'
-      value={formData.username}
-      name='username'
-      onChange={handleChange}
-      required
-      />
-  </div>
-  <div>
-    <label htmlFor='password'>Password:</label>
-    <input
-      type='password'
-      autoComplete='off'
-      id='password'
-      value={formData.password}
-      name='password'
-      onChange={handleChange}
-      required
-    />
-  </div>
-        <div>
-      <button>Sign In</button>
-      <button onClick={() => navigate('/')}>Cancel</button>
-  </div>
+ <main id="auth-page">
+  <div className="auth-card">
+    <h1 className="auth-title">Sign In</h1>
+
+    {message && <p className="auth-message">{message}</p>}
+
+    <form
+      autoComplete="off"
+      onSubmit={handleSubmit}
+      className="auth-form"
+    >
+      <div className="auth-group">
+        <label htmlFor="username">Username</label>
+        <input
+          type="text"
+          id="username"
+          name="username"
+          value={formData.username}
+          onChange={handleChange}
+          required
+        />
+      </div>
+
+      <div className="auth-group">
+        <label htmlFor="password">Password</label>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          value={formData.password}
+          onChange={handleChange}
+          required
+        />
+      </div>
+
+      <div className="auth-actions">
+        <button>Sign In</button>
+        <button
+          type="button"
+          className="btn-outline"
+          onClick={() => navigate('/')}
+        >
+          Cancel
+        </button>
+      </div>
     </form>
-    </main>
+  </div>
+</main>
+
   );
 };
 

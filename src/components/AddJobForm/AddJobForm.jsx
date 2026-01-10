@@ -31,10 +31,13 @@ const AddJobForm = ({ addJob }) => {
   };
 
   return (
-    <div>
-      <h1>Add Job</h1>
+<main>
+  <div className="job-form-card">
+    <h1 className="job-form-title">Add Job</h1>
 
-      <form className="form-card" onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="job-form">
+
+      <div className="job-group">
         <label>Title</label>
         <input
           required
@@ -42,15 +45,20 @@ const AddJobForm = ({ addJob }) => {
           value={formState.title}
           onChange={handleChange}
         />
+      </div>
 
+      <div className="job-group">
         <label>Description</label>
         <textarea
           required
           name="description"
           value={formState.description}
           onChange={handleChange}
+          rows="5"
         />
+      </div>
 
+      <div className="job-group">
         <label>Company</label>
         <input
           required
@@ -58,10 +66,22 @@ const AddJobForm = ({ addJob }) => {
           value={formState.company}
           onChange={handleChange}
         />
+      </div>
 
-        <button type="submit">Save</button>
-      </form>
-    </div>
+      <div className="job-actions">
+        <button type="submit">Save Job</button>
+        <button
+          type="button"
+          className="btn-outline"
+          onClick={() => navigate('/')}
+        >
+          Cancel
+        </button>
+      </div>
+
+    </form>
+  </div>
+</main>
   );
 };
 

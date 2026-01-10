@@ -35,9 +35,13 @@ const EditJobForm = ({ updateOneJob }) => {
     }
   };
   return (
-    <div className="shadedBorder">
-      <h1>Edit Job</h1>
-      <form className="form-card" action="/" onSubmit={handleSubmit}>
+<main>
+  <div className="job-form-card">
+    <h1 className="job-form-title">Edit Job</h1>
+
+    <form onSubmit={handleSubmit} className="job-form">
+
+      <div className="job-group">
         <label htmlFor="title">Title</label>
         <input
           type="text"
@@ -45,7 +49,11 @@ const EditJobForm = ({ updateOneJob }) => {
           id="title"
           value={formState.title}
           onChange={handleChange}
+          required
         />
+      </div>
+
+      <div className="job-group">
         <label htmlFor="company">Company</label>
         <input
           type="text"
@@ -53,18 +61,36 @@ const EditJobForm = ({ updateOneJob }) => {
           id="company"
           value={formState.company}
           onChange={handleChange}
+          required
         />
+      </div>
+
+      <div className="job-group">
         <label htmlFor="description">Description</label>
-        <input
-          type="text"
+        <textarea
           id="description"
           name="description"
           value={formState.description}
           onChange={handleChange}
+          rows="5"
+          required
         />
-        <button type="submit">Save</button>
-      </form>
-    </div>
+      </div>
+
+      <div className="job-actions">
+        <button type="submit">Save Changes</button>
+        <button
+          type="button"
+          className="btn-outline"
+          onClick={() => navigate('/')}
+        >
+          Cancel
+        </button>
+      </div>
+
+    </form>
+  </div>
+</main>
   );
 };
 export default EditJobForm;
