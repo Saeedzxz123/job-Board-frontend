@@ -59,7 +59,7 @@ const AddJobForm = ({ addJob }) => {
       </div>
 
       <div className="job-group">
-        <label>Company</label>
+        <label>Company Name</label>
         <input
           required
           name="company"
