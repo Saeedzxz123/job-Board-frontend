@@ -15,8 +15,8 @@ const Dashboard = ({ jobs }) => {
   <ViewJobsButton />
 
     {user?.isHR && (
-    <Link to="/add-new-job">
-    <button>Add Job</button>
+    <Link to="/add-new-job" className="link-button">
+  <button className="btn-primary-lg">Add Job</button>
     </Link>
       )}
 

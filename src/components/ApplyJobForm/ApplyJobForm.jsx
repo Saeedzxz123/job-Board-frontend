@@ -25,25 +25,33 @@ const ApplyJobForm = ({ jobId, alreadyApplied, onApplied }) => {
   };
 
   return (
-    <div>
-      <h3>Apply for this job</h3>
+<div className="apply-cta">
+  <h3>Apply for this job</h3>
 
-    {alreadyApplied ? (
-    <p >You already applied for this job</p>
-    ) : (
-    <form style={{ margin: "1rem",}}  onSubmit={handleSubmit}>
-    <input 
-    type="file"
-    accept=".pdf,.doc,.docx"
-    onChange={(e) => setCv(e.target.files[0])}
-    required
-    />
-        <button className="marginform" type="submit">Apply</button>
-        </form>
-      )}
-
-
+  {alreadyApplied ? (
+    <div className="apply-success">
+      ✔ You have already applied to this job
     </div>
+  ) : (
+    <form onSubmit={handleSubmit} className="apply-form">
+      <label className="file-upload">
+        <input
+          type="file"
+          accept=".pdf,.doc,.docx"
+          onChange={(e) => setCv(e.target.files[0])}
+          required
+        />
+        <span>
+          Upload CV (PDF / Word)
+        </span>
+      </label>
+
+      <button type="submit" className="apply-btn">
+        Apply Now
+      </button>
+    </form>
+  )}
+</div>
   );
 };
 

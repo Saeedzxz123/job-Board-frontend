@@ -16,7 +16,7 @@ const ViewJobsButton = () => {
     }
   };
 
-  return <button className="viewButton" onClick={handleClick}>{user.isHr ? 'View opening' : 'View My Application'}</button>;
+  return <button className="btn-primary-lg" onClick={handleClick}>{user.isHr ? 'View opening' : 'View My Application'}</button>;
 };
 
 export default ViewJobsButton;

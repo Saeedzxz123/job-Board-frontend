@@ -42,68 +42,75 @@ const SignUpForm = () => {
   };
 
   return (
-    <main>
-      <h1>Sign Up</h1>
-      <p>{message}</p>
-      <form onSubmit={handleSubmit}>
+<main id="auth-page">
+  <div className="auth-card">
+    <h1 className="auth-title">Sign Up</h1>
 
-        <div>
-          <label htmlFor='username'>Username:</label>
-    <input
-    type='text'
-    id='name'
-    value={username}
-    name='username'
-    onChange={handleChange}
-    required
-      />
+    {message && <p className="auth-message">{message}</p>}
+
+    <form onSubmit={handleSubmit} className="auth-form">
+
+      <div className="auth-group">
+        <label htmlFor="username">Username</label>
+        <input
+          type="text"
+          id="username"
+          name="username"
+          value={username}
+          onChange={handleChange}
+          required
+        />
       </div>
 
+      <div className="auth-group">
+        <label htmlFor="password">Password</label>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          value={password}
+          onChange={handleChange}
+          required
+        />
+      </div>
 
-        <div>
-          <label htmlFor='password'>Password:</label>
-          <input
-      type='password'
-        id='password'
-        value={password}
-        name='password'
-        onChange={handleChange}
-        required
-          />
-        </div>
+      <div className="auth-group">
+        <label htmlFor="confirm">Confirm Password</label>
+        <input
+          type="password"
+          id="confirm"
+          name="passwordConf"
+          value={passwordConf}
+          onChange={handleChange}
+          required
+        />
+      </div>
 
+      <div className="auth-checkbox">
+        <input
+          type="checkbox"
+          id="isHR"
+          name="isHR"
+          checked={isHR}
+          onChange={handleChange}
+        />
+        <label htmlFor="isHR">I am an HR recruiter</label>
+      </div>
 
-        <div>
-        <label htmlFor='confirm'>Confirm Password:</label>
-      <input
-    type='password'
-    id='confirm'
-    value={passwordConf}
-    name='passwordConf'
-    onChange={handleChange}
-    required
-  />
-    </div>
+      <div className="auth-actions">
+        <button disabled={isFormInvalid()}>Sign Up</button>
+        <button
+          type="button"
+          className="btn-outline"
+          onClick={() => navigate('/')}
+        >
+          Cancel
+        </button>
+      </div>
 
-
-        <div>
-          <label htmlFor='isHR'>Are you a HR Recruiter:</label>
-          <input
-        type='checkbox'
-        id='isHR'
-        name='isHR'
-        checked={isHR}
-        onChange={handleChange}
-          />
-        </div>
-
-
-        <div>
-      <button disabled={isFormInvalid()}>Sign Up</button>
-      <button onClick={() => navigate('/')}>Cancel</button>
-        </div>
-      </form>
-    </main>
+    </form>
+  </div>
+</main>
   );
 };
 

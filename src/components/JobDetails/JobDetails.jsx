@@ -52,28 +52,38 @@ function JobDetails({ deleteJob }) {
   };
 
   return (
-    <div key={job._id}>
-      <h1>Name: {job.title}</h1>
-      <h2>Company: {job.company}</h2>
-      <p>{job.description}</p>
+<main>
+  <div className="job-details-card">
+    <div className="job-details">
+
+      <h1>{job.title}</h1>
+      <h2>{job.company}</h2>
+      <p className="job-description">{job.description}</p>
 
       {isOwnerHR && (
         <>
-          <form className="form-card" action={`/jobs/${id}/edit`}>
-            <button>Edit</button>
-          </form>
-          <form className="form-card" action="/">
-            <button onClick={handleDelete}>Delete</button>
-          </form>
+          <div className="job-actions-toolbar">
+            <button onClick={() => navigate(`/jobs/${id}/edit`)}>
+              Edit Job
+            </button>
+
+            <button className="btn-danger" onClick={handleDelete}>
+              Delete Job
+            </button>
+          </div>
 
           {applications.length > 0 && (
-            <div>
-              <h3>Applicants:</h3>
+            <div className="applicants">
+              <h3>Applicants</h3>
               <ul>
                 {applications.map((app) => (
                   <li key={app._id}>
-                    {app.user.username} -{" "}
-                    <a href={app.cvUrl} target="_blank" rel="noreferrer">
+                    {app.user.username}
+                    <a
+                      href={app.cvUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
                       Download CV
                     </a>
                   </li>
@@ -85,7 +95,7 @@ function JobDetails({ deleteJob }) {
       )}
 
       {!user?.isHR && (
-        <div>
+        <div className="apply-section">
           {alreadyApplied ? (
             <button disabled>Already Applied</button>
           ) : (
@@ -96,7 +106,10 @@ function JobDetails({ deleteJob }) {
           )}
         </div>
       )}
+
     </div>
+  </div>
+</main>
   );
 }
 

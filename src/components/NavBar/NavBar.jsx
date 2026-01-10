@@ -13,31 +13,54 @@ const NavBar = () => {
   };
 
   return (
-    <nav id="navParant">
-        {user ? (
-          <div className="navCon">
-          <div className="childOne">
-            <span className="navContant" >JOB BOARD</span>
+<nav id="navParent">
+  {user ? (
+    <div className="navCon">
+      <div className="nav-left">
+        <span className="nav-logo">JOB BOARD</span>
 
-            <span className="navContant"> Welcome,{user.username} </span>
+        <span className="welcome-badge">
+          Welcome, {user.username}
+        </span>
 
-            <Link className="navContant" to="/">Main </Link>
+        <Link to="/" className="nav-btn ghost">Main</Link>
 
-            {user.isHR && <Link className="navContant" to="/add-new-job">Add Job</Link>}
-            {!user.isHR && <Link className="navContant" to="/my">My Applications</Link>}
-          </div>
-
-            <button onClick={handleSignOut}>Sign Out</button>
-          </div>
-        ) : (
-          <dev className='navCon2'>
-
-            <Link className="navContant2" to="/">Home</Link>
-            <Link className="navContant2" to="/sign-in">Sign In</Link>
-            <Link className="navContant2" to="/sign-up">Sign Up</Link>
-          </dev>
+        {user.isHR && (
+          <Link to="/add-new-job" className="nav-btn">
+            Add Job
+          </Link>
         )}
-    </nav>
+
+        {!user.isHR && (
+          <Link to="/my" className="nav-btn">
+            My Applications
+          </Link>
+        )}
+      </div>
+
+      <button className="nav-btn danger" onClick={handleSignOut}>
+        Sign Out
+      </button>
+    </div>
+  ) : (
+    <div className="navCon2">
+      {/* LEFT */}
+      <div className="nav-left">
+        <Link to="/" className="nav-btn ghost">Home</Link>
+      </div>
+
+      {/* RIGHT */}
+      <div className="nav-right">
+        <Link to="/sign-in" className="nav-btn ghost">
+          Sign In
+        </Link>
+        <Link to="/sign-up" className="nav-btn">
+          Sign Up
+        </Link>
+      </div>
+    </div>
+  )}
+</nav>
   );
 };
 

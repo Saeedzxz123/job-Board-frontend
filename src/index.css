@@ -322,3 +322,614 @@ p {
 
 
 }}
+/* ===========================
+   AUTH PAGES (ISOLATED)
+=========================== */
+
+#auth-page {
+  min-height: calc(100vh - 80px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Card */
+#auth-page .auth-card {
+  background: #ffffff;
+  width: 100%;
+  max-width: 420px;
+  padding: 2.5rem;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+}
+
+/* Title */
+#auth-page .auth-title {
+  margin: 0 0 1.5rem 0;
+  text-align: center;
+  font-size: 1.8rem;
+}
+
+/* Message */
+#auth-page .auth-message {
+  color: var(--danger);
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+/* Form layout */
+#auth-page .auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+/* Groups */
+#auth-page .auth-group {
+  display: flex;
+  flex-direction: column;
+}
+
+#auth-page .auth-group label {
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+}
+
+/* Inputs */
+#auth-page .auth-group input {
+  padding: 0.75rem 0.9rem;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  font-size: 0.95rem;
+}
+
+#auth-page .auth-group input:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15);
+}
+
+/* Checkbox */
+#auth-page .auth-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+#auth-page .auth-checkbox label {
+  margin: 0;
+  font-weight: 500;
+}
+
+/* Buttons */
+#auth-page .auth-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+#auth-page .auth-actions button {
+  flex: 1;
+}
+
+/* ===========================
+   AUTH BUTTONS (POLISHED)
+=========================== */
+
+#auth-page .auth-actions button {
+  padding: 0.85rem 1.2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 10px;
+  transition: all 0.2s ease;
+}
+
+/* Primary (Sign Up / Sign In) */
+#auth-page .auth-actions button:not(.btn-outline) {
+  background: var(--primary);
+  color: white;
+  border: none;
+}
+
+#auth-page .auth-actions button:not(.btn-outline):hover {
+  background: var(--primary-dark);
+  transform: translateY(-1px);
+}
+
+/* Disabled primary */
+#auth-page .auth-actions button:disabled {
+  background: #cbd5e1;
+  color: #64748b;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Secondary (Cancel) */
+#auth-page .auth-actions .btn-outline {
+  background: w
+}
+
+/* ===========================
+   JOB FORMS (ADD / EDIT)
+=========================== */
+
+.job-form-card {
+  background: white;
+  max-width: 600px;
+  margin: 3rem auto;
+  padding: 2.5rem;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+}
+
+.job-form-title {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 1.8rem;
+}
+
+/* Layout */
+.job-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+}
+
+.job-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.job-group label {
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+}
+
+/* Inputs */
+.job-group input,
+.job-group textarea {
+  padding: 0.75rem 0.9rem;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  font-size: 0.95rem;
+  resize: vertical;
+}
+
+.job-group textarea {
+  min-height: 120px;
+}
+
+.job-group input:focus,
+.job-group textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15);
+}
+
+/* Actions */
+.job-actions {
+  margin-top: 1.5rem;
+}
+
+.job-actions button {
+  width: 100%;
+  padding: 0.
+}
+
+/* Job form buttons */
+.job-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.job-actions button {
+  flex: 1;
+  padding: 0.9rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 10px;
+  transition: all 0.2s ease;
+}
+
+/* Primary */
+.job-actions button:not(.btn-outline) {
+  background: var(--primary);
+  color: white;
+  border: none;
+}
+
+.job-actions button:not(.btn-outline):hover {
+  background: var(--primary-dark);
+  transform: translateY(-1px);
+}
+
+/* Secondary */
+.job-actions .btn-outline {
+  background: white;
+  color: var(--primary);
+  border: 2px solid var(--primary);
+}
+
+.job-actions .btn-outline:hover {
+  background: var(--primary);
+  color: white;
+}
+
+/* ===========================
+   JOB DETAILS
+=========================== */
+
+.job-details {
+  max-width: 900px;
+  margin: 2.5rem auto;
+}
+
+.job-details h1 {
+  font-size: 2rem;
+}
+
+.job-details h2 {
+  color: var(--muted);
+  margin-bottom: 1rem;
+}
+
+.job-description {
+  color: var(--text);
+  margin-bottom: 2rem;
+}
+
+/* Action buttons */
+.job-actions-toolbar {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.job-actions-toolbar button {
+  padding: 0.7rem 1.2rem;
+  font-weight: 600;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
+
+/* Edit */
+.job-actions-toolbar button:not(.btn-danger) {
+  background: var(--primary);
+  color: white;
+}
+
+.job-actions-toolbar button:not(.btn-danger):hover {
+  background: var(--primary-dark);
+}
+
+/* Delete */
+.btn-danger {
+  background: var(--danger);
+  color: white;
+}
+
+.btn-danger:hover {
+  background: #b91c1c;
+}
+
+/* Applicants */
+.applicants h3 {
+  margin-bottom: 0.8rem;
+}
+
+.applicants li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* ===========================
+   JOB DETAILS CARD
+=========================== */
+
+.job-details-card {
+  max-width: 1000px;
+  margin: 3rem auto;
+  background: white;
+  border-radius: 16px;
+  padding: 2.5rem;
+  border: 1px solid var(--border);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+}
+
+/* Inner content spacing */
+.job-details {
+  max-width: 900px;
+  margin: auto;
+}
+
+/* ===========================
+   GLOBAL PRIMARY BUTTON
+=========================== */
+
+.btn-primary-lg {
+  padding: 0.75rem 1.4rem;
+  margin-right: 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 10px;
+  background: var(--primary);
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-primary-lg:hover {
+  background: var(--primary-dark);
+  transform: translateY(-1px);
+}
+
+/* Remove default link styling when button is inside Link */
+.link-button {
+  text-decoration: none;
+}
+
+/* ===========================
+   JOB LIST – APPLIED STATUS
+=========================== */
+
+.jobs-list {
+  list-style: none;
+  padding: 0;
+}
+
+.job-card {
+  position: relative;
+  background: white;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+}
+
+/* Status badge */
+.job-status {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  padding: 0.35rem 0.7rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+/* Applied */
+.job-status.applied {
+  background: #dcfce7;
+  color: var(--success);
+}
+
+/* Card body */
+.job-card-body h3 {
+  margin-bottom: 0.3rem;
+}
+
+.job-card-body .company {
+  color: var(--muted);
+  margin-bottom: 1rem;
+}
+
+/* ===========================
+   NAVBAR (PREMIUM)
+=========================== */
+
+#navParent {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+/* Navbar containers */
+.navCon,
+.navCon2 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1.5rem;
+
+  background: linear-gradient(
+    180deg,
+    #ffffff 0%,
+    #f9fafb 100%
+  );
+
+  border-bottom: 1px solid var(--border);
+
+  box-shadow:
+    0 4px 12px rgba(15, 23, 42, 0.06),
+    0 1px 0 rgba(255, 255, 255, 0.8) inset;
+}
+
+/* Left group */
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+/* Logo */
+.nav-logo {
+  font-weight: 800;
+  font-size: 1rem;
+  letter-spacing: 0.6px;
+  color: var(--text);
+}
+
+/* Welcome badge */
+.welcome-badge {
+  background: linear-gradient(
+    135deg,
+    #eef2ff,
+    #e0e7ff
+  );
+  color: var(--primary-dark);
+  padding: 0.35rem 0.7rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+/* Navbar buttons */
+.nav-btn {
+  padding: 0.45rem 1rem;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border: none;
+
+  background: var(--primary);
+  color: white;
+
+  cursor: pointer;
+  text-decoration: none;
+
+  transition: all 0.2s ease;
+}
+
+.nav-btn:hover {
+  background: var(--primary-dark);
+  transform: translateY(-1px);
+  text-decoration: none;
+}
+
+/* Ghost buttons (logged out / secondary) */
+.nav-btn.ghost {
+  background: transparent;
+  color: var(--primary);
+}
+
+.nav-btn.ghost:hover {
+  background: rgba(37, 99, 235, 0.1);
+  transform: none;
+}
+
+/* Danger button (Sign Out) */
+.nav-btn.danger {
+  background: var(--danger);
+}
+
+.nav-btn.danger:hover {
+  background: #b91c1c;
+}
+
+/* ===========================
+   RESPONSIVE NAVBAR
+=========================== */
+
+@media (max-width: 700px) {
+  .nav-left {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .navCon,
+  .navCon2 {
+    padding: 0.75rem 1rem;
+  }
+}
+.nav-right {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+/* ===========================
+   APPLY JOB (CTA STYLE)
+=========================== */
+
+.apply-cta {
+  margin: 3rem auto 0 auto;
+  padding: 2rem;
+  max-width: 520px;
+
+  background: linear-gradient(
+    180deg,
+    #ffffff,
+    #f8fafc
+  );
+
+  border-radius: 18px;
+  border: 1px solid var(--border);
+  box-shadow: 0 15px 35px rgba(15, 23, 42, 0.1);
+}
+
+
+.apply-cta h3 {
+  font-size: 1.3rem;
+  margin-bottom: 1.2rem;
+}
+
+/* Success state */
+.apply-success {
+  background: #dcfce7;
+  color: var(--success);
+  padding: 0.8rem 1rem;
+  border-radius: 10px;
+  font-weight: 600;
+}
+
+/* Form */
+.apply-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Custom file upload */
+.file-upload {
+  position: relative;
+  display: block;
+  cursor: pointer;
+}
+
+.file-upload input {
+  display: none;
+}
+
+.file-upload span {
+  display: block;
+  padding: 1rem;
+  border: 2px dashed var(--border);
+  border-radius: 12px;
+  background: #ffffff;
+  font-weight: 600;
+  color: var(--muted);
+  text-align: center;
+  transition: all 0.2s ease;
+}
+
+.file-upload:hover span {
+  border-color: var(--primary);
+  color: var(--primary);
+  background: #f0f4ff;
+}
+
+/* Apply button */
+.apply-btn {
+  padding: 0.9rem;
+  font-size: 1rem;
+  font-weight: 700;
+  border-radius: 12px;
+  background: var(--primary);
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.apply-btn:hover {
+  background: var(--primary-dark);
+  transform: translateY(-1px);
+}

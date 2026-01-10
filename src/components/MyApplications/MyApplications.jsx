@@ -37,25 +37,36 @@ const MyApplications = () => {
   if (error) return <p>{error}</p>
 
   return (
-    <main>
-      <h1>My Applied Jobs</h1>
+ <main>
+  <h1>My Applied Jobs</h1>
 
-      {applications.length === 0 ? (
-        <p>You haven’t applied to any jobs yet.</p>
-      ) : (
-        <ul>
-          {applications.map(app => (
-            <li key={app._id}>
-              <span >Applied</span>
-                <h3>{app.job.title}</h3>
-                <p>{app.job.company}</p>
+  {applications.length === 0 ? (
+    <p className="empty-state">You haven’t applied to any jobs yet.</p>
+  ) : (
+    <ul className="jobs-list">
+      {applications.map(app => (
+        <li key={app._id} className="job-card">
 
-                <button onClick={() => navigate(`/jobs/${app.job._id}`)}>Detail</button>
-            </li>
-          ))}
-        </ul>
-      )}
-    </main>
+          <div className="job-status applied">Applied</div>
+
+          <div className="job-card-body">
+            <h3>{app.job.title}</h3>
+            <p className="company">{app.job.company}</p>
+
+            <button
+              className="btn-primary-lg"
+              onClick={() => navigate(`/jobs/${app.job._id}`)}
+            >
+              Details
+            </button>
+          </div>
+
+        </li>
+      ))}
+    </ul>
+  )}
+</main>
+
   )
 }
  
