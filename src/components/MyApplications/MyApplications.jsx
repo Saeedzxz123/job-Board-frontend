@@ -38,7 +38,7 @@ const MyApplications = () => {
 
   return (
  <main>
-  <h1>My Applied Jobs</h1>
+  <h1>My Applied Jobs List</h1>
 
   {applications.length === 0 ? (
     <p className="empty-state">You haven’t applied to any jobs yet.</p>
