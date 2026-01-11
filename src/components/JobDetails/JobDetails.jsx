@@ -43,13 +43,14 @@ function JobDetails({ deleteJob }) {
     user?.isHR && (job.createdBy?._id === user._id || job.createdBy === user._id);
 
   const handleDelete = async () => {
-    try {
-      const deletedJob = await jobService.deleteOne(id);
-      if (deletedJob) deleteJob(id);
-    } catch (error) {
-      console.error(error);
-    }
-  };
+  try {
+    await jobService.deleteOne(id);
+    deleteJob(id)
+   navigate("/");
+  } catch (error) {
+    console.error(error, "faild to delete job");
+  }
+};
 
   return (
 <main>
