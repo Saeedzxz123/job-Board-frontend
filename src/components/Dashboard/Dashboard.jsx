@@ -30,7 +30,7 @@ const Dashboard = ({ jobs }) => {
     alignItems: "center",
     marginBottom: "10px",
       }}>
-    <span>{job.title} - {job.company}</span>
+    <span>{job.title} Company: {job.company}</span>
 
     <button onClick={() => navigate(`/jobs/${job._id}`)}>View</button>
     </li>
